@@ -9,6 +9,12 @@ breads.get('/', (req, res) => {
   });
 });
 
+// NEW
+breads.get('/new', (req, res) => {
+  res.render('new')
+})
+
+
 // SHOW
 breads.get('/:arrayIndex', (req, res) => {
   const arrayIndex = parseInt(req.params.arrayIndex);
@@ -20,5 +26,19 @@ breads.get('/:arrayIndex', (req, res) => {
     res.render('404'); // Render a 404 view instead of just sending text
   }
 });
+
+
+// CREATE
+breads.post('/', (req, res) => {
+  console.log(req.body)
+  if(req.body.hasGluten === 'on') {
+    req.body.hasGluten = 'true'
+  } else {
+    req.body.hasGluten = 'false'
+  }
+  Bread.push(req.body)
+  res.redirect('/breads')
+})
+
 
 module.exports = breads;
