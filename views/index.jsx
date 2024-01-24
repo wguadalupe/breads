@@ -9,7 +9,6 @@ function Index ({breads}) {
   <div className="newButton">
   <a href="/breads/new"><button>Add a new bread</button></a>
 </div>
-
   </h2>
   {/* <p>I have {breads[0].name} bread!</p> */}
   {/* This is a JSX comment. */}
