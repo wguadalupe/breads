@@ -1,6 +1,7 @@
 // DEPENDENCIES
 const express = require('express');
 const path = require('path');
+const methodOverride = require('method-override')
 
 // CONFIGURATION
 require('dotenv').config();
@@ -11,6 +12,9 @@ const app = express();
 app.set('views', path.join(__dirname, 'views')); // Adjusted the views path using path.join
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
+app.use(methodOverride('_method'))
+
+
 
 app.use(express.urlencoded({ extended: true }));
 
